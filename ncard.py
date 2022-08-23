@@ -36,8 +36,6 @@ class NCard:
                 discardcard(variable, players[playerIndex].cards, players[playerIndex].name)
                 print(f"{players[playerIndex].name}, your hand is {players[playerIndex].cards}")
                 os.system('cls')
-            for j in range(self.boards):
-                print(allboards[j][0: i])
             i += 1
 
         scores = []
@@ -46,6 +44,7 @@ class NCard:
                 scores.append(HandEvaluator.evaluate_hand(players[playerIndex].cards, allboards[boardIndex]))
             for scoreIndex in range(len(scores)):
                 if max(scores) == scores[scoreIndex]:
+                    print(f"{allboards[boardIndex]} {players[scoreIndex].name}")
                     players[scoreIndex].increase_score()
             scores = []
 
